@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-
 const Footer = () => {
   return (
     <div className="max-md:mt-[3rem] mt-[7.75rem] bg-[#f7f7f7]">
@@ -104,15 +103,16 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
-          {/* 
+          <div className="flex flex-col self-start gap-[40px]">
+            <h1 className="text-[1.063rem] font-bold">O nama</h1>
+            <div className="flex flex-col items-start gap-[0.4rem] text-[0.813rem] font-normal">
               <Link
-                href={`/stranica-u-izradi`}
+                href={`/strana/o-nama`}
                 className="cursor-pointer hover:text-[#e10000]"
               >
                 Više o kompaniji {process.env.NEXT_PUBLIC_COMPANY_NAME}
               </Link>
-            
+              {/* 
               <Link
                 href={`/stranica-u-izradi`}
                 className="cursor-pointer hover:text-[#e10000]"
@@ -127,7 +127,8 @@ const Footer = () => {
                 Naše prodavnice
               </Link>
                 */}
-
+            </div>
+          </div>
           <div className="flex max-[493px]:mt-10 flex-col self-start gap-[40px]">
             <h1 className="text-[1.063rem] font-bold">Možda te interesuje</h1>
             <div className="flex flex-col items-start gap-[0.4rem] text-[0.813rem] font-normal">
@@ -261,6 +262,7 @@ const Footer = () => {
             Politika privatnosti •
           </Link>
           {/* 
+          {/* 
           <Link
             href="/isporuka"
             className="text-[0.813rem] font-normal text-[#191919] hover:text-[#e10000] cursor-pointer"
@@ -297,5 +299,4 @@ const Footer = () => {
     </div>
   );
 };
-
 export default Footer;

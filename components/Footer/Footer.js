@@ -14,14 +14,11 @@ import Youtube from "../../assets/Icons/youtube.png";
 import Facebook from "../../assets/Icons/facebook.png";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-
 const Footer = () => {
   const [open, setOpen] = useState({
     id: null,
   });
-
   const pathname = usePathname();
-
   return (
     <div className="max-md:mt-[3rem] mt-[7.75rem] bg-[#f7f7f7]">
       <div className="mx-[5rem] max-xl:flex-col py-[2.625rem] flex items-center justify-between border-l-0 border-t-0 border-r-0 border-b-2 border-b-white">
@@ -120,7 +117,9 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-              {/* 
+          <div className="flex flex-col self-start gap-[40px] max-md:self-center">
+            <h1 className="text-[1.063rem] font-bold">O nama</h1>
+            <div className="flex flex-col items-start gap-[0.4rem] text-[0.813rem] font-normal">
               <Link
                 href={`/strana/o-nama`}
                 className={`cursor-pointer hover:text-[#CA965C] ${
@@ -129,25 +128,18 @@ const Footer = () => {
               >
                 Više o kompaniji Londessa
               </Link>
-
+              {/* 
               <Link
                 href={`/stranica-u-izradi`}
                 className={`cursor-pointer hover:text-[#CA965C] ${
-                  pathname === "/stranica-u-izradi" && "text-[#CA965C]"
-                }`}
-              >
-                Ponude za posao
-              </Link>
-           
-              <Link
-                href={`/maloprodaje`}
-                className={`cursor-pointer hover:text-[#CA965C] ${
-                  pathname === "/maloprodaje" && "text-[#CA965C]"
-                }`}
+@@ -150,300 +147,291 @@
               >
                 Naše prodavnice
               </Link>
-                */} 
+                */}
+            </div>
+          </div>
+
           <div className="flex max-[493px]:mt-10 flex-col self-start gap-[40px] max-md:self-center">
             <h1 className="text-[1.063rem] font-bold">Možda te interesuje</h1>
             <div className="flex flex-col items-start gap-[0.4rem] text-[0.813rem] font-normal">
@@ -214,8 +206,13 @@ const Footer = () => {
               </div>
             )}
           </div>
-         
-                {/* 
+          <div
+            onClick={() => setOpen({ id: open?.id === 2 ? null : 2 })}
+            className="flex flex-col self-start gap-[40px] max-md:self-center text-center"
+          >
+            <h1 className="text-[1.063rem] font-bold">O nama</h1>
+            {open?.id === 2 && (
+              <div className="flex flex-col items-center justify-center gap-[0.4rem] text-[0.813rem] font-normal">
                 <Link
                   href={`/strana/o-nama`}
                   className={`cursor-pointer hover:text-[#CA965C] ${
@@ -224,7 +221,7 @@ const Footer = () => {
                 >
                   Više o kompaniji Londessa
                 </Link>
-
+                {/* 
                 <Link
                   href={`/stranica-u-izradi`}
                   className={`cursor-pointer hover:text-[#CA965C] ${
@@ -243,8 +240,10 @@ const Footer = () => {
                   Naše prodavnice
                 </Link>
                    */}
-        
-           
+              </div>
+            )}
+          </div>
+
           <div
             onClick={() => setOpen({ id: open?.id === 3 ? null : 3 })}
             className="flex flex-col self-start gap-[40px] max-md:self-center"
@@ -272,7 +271,6 @@ const Footer = () => {
             )}
           </div>
         </div>
-
         <div className="flex max-xl:mt-5 flex-col max-md:mt-10 self-start gap-[1.25rem] max-xl:w-full xl:max-w-[450px] 2xl:max-w-[450px] 3xl:max-w-[578px]">
           <div className="flex items-center gap-1 ">
             <div>
@@ -433,5 +431,4 @@ const Footer = () => {
     </div>
   );
 };
-
 export default Footer;

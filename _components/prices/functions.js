@@ -207,7 +207,20 @@ export const renderDiscountPrices = (data = {}) => {
     );
     return (
       <>
-        <div className={` `}>
+        <div className={` flex flex-col-reverse flex-wrap items-center gap-3`}>
+          <p
+            className={`font-medium ${
+              type === "details" && "text-[1.313rem] !font-bold"
+            }`}
+          >
+            {currencyFormat(price?.price?.discount)}
+          </p>
+          {type === "details" && (
+            <p className={`text-[#31a100] text-base font-semibold`}>
+              Ušteda:{" "}
+              {currencyFormat(price?.price?.original - price?.price?.discount)}
+            </p>
+          )}
           <p
             className={`line-through text-[#838383] font-medium ${
               type === "details" && "text-[1.313rem]"
@@ -215,21 +228,7 @@ export const renderDiscountPrices = (data = {}) => {
           >
             {currencyFormat(price?.price?.original)}
           </p>
-          <p
-            className={`font-medium ${
-              type === "details" && "text-[1.313rem] !font-bold"
-            }`}
-          >
-            {currencyFormat(price?.price?.discount)}
-            {type === "details" && ` (${discount_percentage}%)`}
-          </p>
         </div>
-        {type === "details" && (
-          <p className={`text-[#31a100] text-base font-semibold`}>
-            Ušteda:{" "}
-            {currencyFormat(price?.price?.original - price?.price?.discount)}
-          </p>
-        )}
       </>
     );
   }

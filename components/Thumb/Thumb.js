@@ -396,7 +396,7 @@ export const Thumb = ({
       <div className="flex items-center gap-1 mt-2 flex-wrap max-md:text-[0.75rem] text-[0.813rem] min-w-[5.938rem] max-w-max">
         <div
           className={`${
-            product?.price?.discount?.active && "bg-[#f8ce5d] px-2"
+            product?.price?.discount?.active && ""
           } md:mt-3 font-bold text-center`}
         >
           <Prices
@@ -412,7 +412,9 @@ export const Thumb = ({
         >
           {loading?.status &&
           loading?.id === product?.basic_data?.id_product ? (
-            <i className={`fa fa-solid fa-spinner animate-spin text-xl`}></i>
+            <i
+              className={`fa fa-solid fa-spinner animate-spin text-xl font-bold`}
+            ></i>
           ) : (
             <>
               {variantOptionColor?.values?.map((item3) => {

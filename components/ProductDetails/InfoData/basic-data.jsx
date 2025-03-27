@@ -88,18 +88,7 @@ export const BasicData = ({
     switch (true) {
       case product?.product_type === "single":
         if (product?.data?.item?.price?.discount?.active) {
-          return (
-            <span className="text-[#636363] text-[1rem]">
-              -
-              {(
-                ((product?.data?.item?.price?.price?.original -
-                  product?.data?.item?.price?.price?.discount) /
-                  product?.data?.item?.price?.price?.original) *
-                100
-              ).toFixed(0)}
-              %
-            </span>
-          );
+        
         }
         break;
       case product?.product_type === "variant":
@@ -152,7 +141,7 @@ export const BasicData = ({
           : product?.data?.item?.basic_data?.sku}
       </h2>
       <div
-        className={`mt-[2.125rem] text-[1.313rem] flex  items-center gap-3 font-bold`}
+        className={`mt-[2.125rem] text-[1.313rem] flex items-center gap-3 font-bold`}
       >
         <Prices
           price={
@@ -167,6 +156,10 @@ export const BasicData = ({
           }
           type={"details"}
         />
+        {renderDiscount(product)}
+        {product?.data?.item?.price?.discount?.active && (
+          <span className="text-[#636363] text-[1rem] line-through"></span>
+        )}
       </div>
       <p className={`text-sm max-w-full lg:max-w-[90%] mt-5`}>
         {product?.data?.item?.basic_data?.short_description}
